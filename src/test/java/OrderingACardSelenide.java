@@ -11,11 +11,10 @@ public class OrderingACardSelenide {
     @Test
     public void shouldOrderingACard(){
         open("http://localhost:9999/");
-        SelenideElement form = $("[data-test-id=callback-form]");
-        form.$("[data-test-id = name] input").setValue("Евгений");
-        form.$("[data-test-id = phone] input").setValue("+79221956008");
-        form.$("[data-test-id = agreement]").click();
-        form.$("[type = button]").click();
+        $("[data-test-id = name] input").setValue("Евгений");
+        $("[data-test-id = phone] input").setValue("+79221956008");
+        $("[data-test-id = agreement]").click();
+        $("[type = button]").click();
         $("[.order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время"));
     }
 }
